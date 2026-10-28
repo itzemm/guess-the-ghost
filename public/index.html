@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guess the Ghost</title>
+  <meta name="description" content="Can you tell who's haunting you just by their eyes?" />
+  <link rel="icon" href="images/placeholder.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Guess the Ghost</h1>
+    <p class="tagline">Twelve pairs of eyes are watching you. Can you name each ghost?</p>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-view="play" role="tab" aria-selected="true">Play</button>
+      <button class="tab" data-view="leaderboard" role="tab" aria-selected="false">Leaderboard</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PLAY -->
+    <section id="view-play" class="view">
+      <p id="closed-banner" class="banner" hidden>Submissions are closed. Check out the leaderboard!</p>
+
+      <form id="game-form" novalidate>
+        <div class="player-row">
+          <label for="player">Your name</label>
+          <input id="player" name="player" type="text" maxlength="30" autocomplete="nickname" placeholder="Enter your name" required />
+        </div>
+
+        <div id="ghost-grid" class="ghost-grid" aria-live="polite">
+          <p class="muted">Summoning ghosts…</p>
+        </div>
+
+        <div class="submit-row">
+          <span id="progress" class="muted"></span>
+          <button id="submit-btn" type="submit" class="primary">Submit my guesses</button>
+        </div>
+        <p id="form-error" class="error" role="alert" hidden></p>
+      </form>
+
+      <div id="result" class="result" hidden>
+        <h2 id="result-title"></h2>
+        <p id="result-score" class="score"></p>
+        <p class="muted">Your score has been added to the leaderboard.</p>
+        <button id="see-leaderboard" class="primary" type="button">See the leaderboard</button>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="view-leaderboard" class="view" hidden>
+      <div class="board-head">
+        <h2>Leaderboard</h2>
+        <button id="refresh-board" class="ghost-btn" type="button">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table class="board">
+          <thead>
+            <tr><th>#</th><th>Player</th><th class="num">Correct</th></tr>
+          </thead>
+          <tbody id="board-body">
+            <tr><td colspan="3" class="muted">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="muted">Boo! 👻</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

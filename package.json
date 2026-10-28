@@ -1,0 +1,14 @@
+{
+  "name": "guess-the-ghost",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.40.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
