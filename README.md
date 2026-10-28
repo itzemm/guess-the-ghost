@@ -7,7 +7,7 @@ A guessing game: players look at the eyes of 12 ghosts, pick each ghost's name f
 1. **Images:** put your images in `public/images/` and name them `ghost-1.jpg`, `ghost-2.jpg`, … `ghost-12.jpg`. (`.jpeg`, `.png` and `.webp` work too.) A wide image shape (16:9) looks best. Until an image is added, a placeholder pair of eyes is shown.
 2. **Names and answers:** edit `lib/game-config.js`:
    - `NAME_CHOICES` is the list of names shown in every dropdown. Add extra decoy names to make the game harder.
-   - `ANSWER_KEY` is the correct name for each ghost. This file stays on the server, so players can't see it.
+   - The answer key is the correct name for each ghost. Players can't see it on the website, but **if your GitHub repository is public, anyone can read it on GitHub**. To keep the real answers secret, leave placeholder answers in this file and add them in Vercel instead: **Settings → Environment Variables**, name `GHOST_ANSWERS`, value = the 12 names in order separated by commas (e.g. `Casper, Slimer, ...`). Redeploy after changing it.
    - `SUBMISSIONS_OPEN` set to `false` stops new entries.
    - `SHOW_RESULTS_TO_PLAYERS` set to `true` shows players which ghosts they got right (this gives away the answers).
 
